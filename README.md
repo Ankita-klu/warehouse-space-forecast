@@ -1,86 +1,38 @@
-# Warehouse Space Forecasting System
+# WarehouseForecast
 
-A Julia-based system for analyzing and forecasting warehouse space utilization using historical shipment data.
+A Julia package for warehouse space forecasting and capacity planning.
 
-## Features
+## Author
+Ankita Kumari (ankita.kumari@stud.klu.org)
 
-- 📊 **Historical Analysis**: Process incoming/outgoing shipment data
-- 📈 **Time Series Forecasting**: ARIMA-style forecasting with multiple fallback methods
-- 📉 **Visualizations**: Automated plot generation for trends and forecasts
-- 🔄 **Rolling Averages**: Smooth occupancy trends
-- 💾 **CSV Export**: Save results for further analysis
-
-## Project Structure
-
-```
-warehouse-space-forecast/
-├── data/
-│   ├── incoming_shipments.csv    # Historical incoming shipments
-│   └── outgoing_shipments.csv    # Historical outgoing shipments
-├── src/
-│   ├── WarehouseForecast.jl      # Main processing module
-│   └── arima_forecast.jl         # Time series forecasting module
-├── scripts/
-│   └── forecast.jl               # Main execution script
-├── results/                      # Generated outputs (CSV files and plots)
-└── README.md
-```
-
-## Usage
-
-1. **Prepare your data**: Place CSV files in the `data/` directory with columns:
-   - Date column: `date`, `Date`, or `timestamp`
-   - Volume column: `volume`, `quantity`, or `amount`
-
-2. **Run the forecast**:
-   ```bash
-   julia scripts/forecast.jl
-   ```
-
-3. **Check results**: Output files will be saved in `results/`:
-   - `space_usage.csv`: Historical occupancy data
-   - `space_forecast_plot.png`: Historical trends visualization
-   - `space_forecast_arima.csv`: Future forecasts
-   - `space_forecast_arima.png`: Forecast visualization with confidence bands
-
-## Forecasting Methods
-
-The system automatically selects the best available forecasting method:
-
-1. **ARIMA Models** (if StateSpaceModels.jl is available)
-2. **AR Approximation** (autoregressive modeling with differencing)
-3. **Exponential Smoothing** (for shorter time series)
-
-## Requirements
-
-- Julia 1.6+
-- Required packages: `CSV`, `DataFrames`, `Dates`, `Plots`, `Statistics`
-- Optional: `StateSpaceModels` (for full ARIMA functionality)
+## Overview
+WarehouseForecast provides tools for:
+- Loading and processing warehouse data
+- Forecasting warehouse space requirements
+- Visualizing capacity trends and predictions
 
 ## Installation
 
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/warehouse-space-forecast.git
-   cd warehouse-space-forecast
-   ```
+### From GitHub
+```julia
+using Pkg
+Pkg.add(url="https://github.com/Ankita-klu/warehouse-space-forecast.git")
 
-2. Install Julia dependencies:
-   ```julia
-   using Pkg
-   Pkg.add(["CSV", "DataFrames", "Dates", "Plots", "Statistics"])
-   ```
+Contributing
+This is an academic project developed at KL University. For suggestions or improvements, please contact the author.
+License
+MIT License
+Copyright (c) 2025 Ankita Kumari
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+Acknowledgments
 
-3. Optionally install StateSpaceModels for advanced ARIMA:
-   ```julia
-   Pkg.add("StateSpaceModels")
-   ```
+KL University
+Julia Programming Language Community
+All package maintainers for the dependencies used
 
-## Example Output
-
-The system generates:
-- Historical occupancy trends
-- 7-day forward forecasts
-- Confidence intervals for predictions
-- Rolling averages for trend smoothing
-
+Contact
+Author: Ankita Kumari
+Email: ankita.kumari@stud.klu.org
+Repository: https://github.com/Ankita-klu/warehouse-space-forecast
